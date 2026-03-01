@@ -60,3 +60,73 @@ p {
   font-size: 18px;
   color: #aaa;
 }
+.logo-link{
+  color:white;
+  text-decoration:none;
+}
+
+.links a.active{
+  color:white;
+}
+
+.page{
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 110px; /* chừa chỗ cho navbar fixed */
+  padding-bottom: 60px;
+}
+
+.page h1{
+  margin-top: 0;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.page h2{
+  margin-top: 30px;
+  color: #ddd;
+}
+
+.card{
+  background: #151515;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 22px;
+  margin-top: 14px;
+  transition: all 0.3s ease;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  border-color: #4da6ff;
+  box-shadow: 0 10px 25px rgba(77,166,255,0.2);
+}
+
+.grid-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #4da6ff;
+  color: #0d0d0d;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.btn:hover{
+  opacity: 0.9;
+}
+
+@media (max-width: 760px){
+  .grid-2{
+    grid-template-columns: 1fr;
+  }
+}
