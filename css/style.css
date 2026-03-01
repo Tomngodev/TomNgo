@@ -5,12 +5,49 @@ body {
   color: white;
 }
 
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #111;
+  padding: 15px 0;
+  border-bottom: 1px solid #222;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.links a {
+  color: #4da6ff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.links a:hover {
+  color: white;
+}
+
+/* HERO */
 .container {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 80px;
   text-align: center;
 }
 
@@ -22,20 +59,4 @@ h1 {
 p {
   font-size: 18px;
   color: #aaa;
-}
-
-nav {
-  margin-top: 25px;
-}
-
-nav a {
-  color: #4da6ff;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-nav a:hover {
-  color: white;
 }
