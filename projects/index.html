@@ -21,10 +21,20 @@
 
   <main class="page">
   <h1>Projects</h1>
-  <div id="projects-container" class="grid-2"></div>
-</main>
+  <div class="toolbar">
+  <input id="search" class="search" type="text" placeholder="Search projects..." />
+  <div class="filters">
+    <button class="chip active" data-tag="all">All</button>
+    <button class="chip" data-tag="web">Web</button>
+    <button class="chip" data-tag="data">Data</button>
+    <button class="chip" data-tag="cloud">Cloud</button>
+  </div>
+</div>
+
+<div id="projects-container" class="grid-2"></div>
 
 <script src="../js/projects.js"></script>
+</main>
 
 <footer class="footer">
   <div class="footer-container">
