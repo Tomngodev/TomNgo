@@ -1,79 +1,143 @@
-body {
+/* =========================
+   Global / Reset
+========================= */
+*{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #0d0d0d;
-  color: white;
+  color: #fff;
+
+  /* sticky footer */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* NAVBAR */
-.navbar {
+/* Make sure main content can push footer down */
+.page,
+.container{
+  flex: 1;
+}
+
+/* =========================
+   Navbar
+========================= */
+.navbar{
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   background: #111;
   padding: 15px 0;
   border-bottom: 1px solid #222;
+  z-index: 1000;
 }
 
-.nav-container {
+.nav-container{
   width: 90%;
   max-width: 1100px;
   margin: auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
-.logo {
-  font-weight: bold;
+.logo{
+  font-weight: 700;
   font-size: 20px;
+  white-space: nowrap;
 }
 
-.links a {
+.logo-link{
+  color: #fff;
+  text-decoration: none;
+}
+
+.links{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.links a{
   color: #4da6ff;
   text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.links a:hover {
-  color: white;
+.links a:hover{
+  color: #fff;
 }
 
-/* HERO */
-.container {
-  height: 100vh;
+.links a.active{
+  color: #fff;
+}
+
+/* Responsive navbar */
+@media (max-width: 640px){
+  .nav-container{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .links{
+    margin-left: 0;
+    white-space: normal;
+  }
+}
+
+/* =========================
+   Home Hero (.container)
+========================= */
+.container{
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 110px; /* space for fixed navbar */
   text-align: center;
 }
 
-h1 {
+h1{
   font-size: 48px;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
-p {
+p{
   font-size: 18px;
   color: #aaa;
-}
-.logo-link{
-  color:white;
-  text-decoration:none;
+  margin: 0;
 }
 
-.links a.active{
-  color:white;
+/* Optional: hero actions */
+.hero-actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* =========================
+   Page Layout
+========================= */
 .page{
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
-  padding-top: 110px; /* chừa chỗ cho navbar fixed */
+  padding-top: 110px; /* space for navbar */
   padding-bottom: 60px;
 }
 
@@ -86,6 +150,16 @@ p {
 .page h2{
   margin-top: 30px;
   color: #ddd;
+}
+
+/* =========================
+   Cards / Grid
+========================= */
+.grid-2{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .card{
@@ -103,13 +177,22 @@ p {
   box-shadow: 0 10px 25px rgba(77,166,255,0.2);
 }
 
-.grid-2{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
+.card-top{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
 }
 
+@media (max-width: 760px){
+  .grid-2{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================
+   Buttons
+========================= */
 .btn{
   display: inline-block;
   background: #4da6ff;
@@ -122,20 +205,26 @@ p {
 }
 
 .btn:hover{
-  background: white;
+  background: #fff;
   transform: translateY(-2px);
 }
 
-@media (max-width: 760px){
-  .grid-2{
-    grid-template-columns: 1fr;
-  }
+/* Optional outline button */
+.btn-outline{
+  background: transparent;
+  color: #fff;
+  border: 1px solid #222;
 }
 
-html{
-  scroll-behavior: smooth;
+.btn-outline:hover{
+  border-color: #4da6ff;
+  background: transparent;
+  color: #fff;
 }
 
+/* =========================
+   Fade-in Animation
+========================= */
 .fade-in{
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -151,20 +240,26 @@ html{
   }
 }
 
+/* =========================
+   Footer
+========================= */
 .footer{
+  margin-top: auto; /* sticky footer */
   border-top: 1px solid #222;
-  margin-top: 80px;
   padding: 30px 0;
   text-align: center;
   color: #777;
   font-size: 14px;
 }
 
+/* =========================
+   Projects Toolbar (Search + Filters)
+========================= */
 .toolbar{
-  display:flex;
-  gap:14px;
-  align-items:center;
-  justify-content:space-between;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
   margin: 14px 0 24px;
   flex-wrap: wrap;
 }
@@ -172,64 +267,60 @@ html{
 .search{
   flex: 1;
   min-width: 220px;
-  background:#0f0f0f;
-  border:1px solid #222;
-  color:#fff;
-  padding:10px 12px;
-  border-radius:10px;
-  outline:none;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  outline: none;
 }
 
 .search:focus{
-  border-color:#4da6ff;
+  border-color: #4da6ff;
   box-shadow: 0 0 0 3px rgba(77,166,255,0.15);
 }
 
 .filters{
-  display:flex;
-  gap:10px;
+  display: flex;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .chip{
-  background:#111;
-  border:1px solid #222;
-  color:#cfd6e4;
-  padding:8px 12px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:600;
+  background: #111;
+  border: 1px solid #222;
+  color: #cfd6e4;
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .chip:hover{
-  border-color:#4da6ff;
+  border-color: #4da6ff;
 }
 
 .chip.active{
-  background:#4da6ff;
-  color:#000;
-  border-color:#4da6ff;
+  background: #4da6ff;
+  color: #000;
+  border-color: #4da6ff;
 }
 
+/* =========================
+   Tags
+========================= */
 .tags{
-  display:flex;
-  gap:8px;
+  display: flex;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
 .tag{
-  font-size:12px;
-  padding:4px 10px;
-  border-radius:999px;
-  border:1px solid #222;
-  color:#9fb8ff;
-  background:#0f1320;
-}
-
-.card-top{
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  align-items:flex-start;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #222;
+  color: #9fb8ff;
+  background: #0f1320;
 }
